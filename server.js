@@ -1,7 +1,13 @@
 // Create an instance of a server
 const express = require('express');
-
+const connectDB = require('./config/db')
 const app = express();
+
+//Connect DB
+connectDB();
+
+//Initialize Middleware
+app.use(express.json({extended:false}))
 
 // Initiating localhost:5000
 app.get('/', (req, res) => res.json({'msg': 'Welcome to the Contact Keeper App'}));
