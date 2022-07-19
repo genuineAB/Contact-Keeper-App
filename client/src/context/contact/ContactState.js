@@ -22,6 +22,14 @@ const ContactState = props => {
                 phone: '22562346243',
                 type: 'Personal'
 
+            },
+            {
+                id: 2,
+                name: 'Ezeobi Sochima',
+                email: 'e.Sochima@gmail.com',
+                phone: '2345365245',
+                type: 'Professional'
+
             }
         ]
     };

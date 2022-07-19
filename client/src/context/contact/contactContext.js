@@ -1,4 +1,3 @@
-import c from "config";
 import { createContext } from "react";
 
 
