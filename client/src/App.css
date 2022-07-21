@@ -5,7 +5,7 @@
   --primary-color: #3559dc;
   --dark-color: #333333;
   --light-color: #f4f4f4;
-  --danger-color: #3559dc;
+  --danger-color: #c21414;
   --success-color: #28a745;
 }
 
@@ -30,6 +30,10 @@ a {
 
 a:hover {
   color: #666;
+}
+
+h1, h2, h3 {
+  text-align: center;
 }
 
 ul {
@@ -182,6 +186,7 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
+  padding: 0 20% 0 20%;
 }
 
 .grid-3 {
