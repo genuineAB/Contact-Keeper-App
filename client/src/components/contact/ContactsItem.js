@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-export const ContactsItem = ({contact}) => {
-    const { id, name, email, phone, type} = contact;
-    console.log(contact.id);
+const ContactsItem = ({contact}) => {
+    const { name, email, phone, type} = contact;
+    // console.log(contact.id);
   return (
     <div className='card bg-light'> 
         <h3 className='text-primary text-left'>
@@ -32,3 +32,5 @@ export const ContactsItem = ({contact}) => {
 ContactsItem.propTypes = {
     contact: PropTypes.object.isRequired
 }
+
+export default ContactsItem

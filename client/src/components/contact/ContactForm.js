@@ -4,7 +4,6 @@ import ContactContext from '../../context/contact/contactContext';
 export const ContactForm = () => {
     const contactContext = useContext(ContactContext);
     const [contact, setContact] = useState({
-        id:'',
         name: '',
         email: '',
         phone: '',
@@ -19,7 +18,6 @@ export const ContactForm = () => {
         e.preventDefault();
         contactContext.addContact(contact);
         setContact({
-            id:'id',
             name: '',
             email: '',
             phone: '',
