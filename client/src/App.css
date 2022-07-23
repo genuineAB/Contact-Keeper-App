@@ -323,6 +323,10 @@ input {
   color: #888;
 }
 
+.form-style{
+  padding: 0 25% 0 25%;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='password'],
