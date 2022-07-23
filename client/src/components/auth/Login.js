@@ -1,6 +1,10 @@
-import React, {useReducer, useState} from 'react'
+import React, {useContext, useState} from 'react';
+import AlertContext from '../../context/alert/alertContext';
 
 const Login = () => {
+    const alertContext = useContext(AlertContext);
+    const {setAlert} = alertContext;
+
     const [user, setUser] = useState({
         email: '',
         password: '',
@@ -12,7 +16,16 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log("Login");
+        if( (email.trim().length === 0)){
+            setAlert('Please enter all fields', 'danger');
+        }
+        else if((password.trim().length === 0) ){
+            setAlert('Please enter your password', 'danger');
+        }
+        else{
+            console.log("Login");
+        }
+        
     }
   return (
     <div className='form-container'>
