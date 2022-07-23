@@ -33,6 +33,13 @@ const contactReducer = (state, action) => {
                 ...state,
                 current: null
             }; 
+
+        case UPDATE_CONTACT:
+            console.log(action.payload);
+            return {
+                ...state,
+                contacts: state.contacts.filter(contact => (contact.id === action.payload.id) ? action.payload : contact)
+            }
         
         default:
             return state;
