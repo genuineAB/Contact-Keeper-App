@@ -8,7 +8,7 @@ const Register = () => {
     const authContext = useContext(AuthContext);
 
     const {setAlert} = alertContext;
-    const {register, error, clearErrors, isAuthenticated} = authContext;
+    const {register, error, clearErrors, isAuthenticated, loadUser} = authContext;
 
     const navigate = useNavigate();
     
