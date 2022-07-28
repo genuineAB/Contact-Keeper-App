@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const alertContext = useContext(AlertContext);
@@ -14,14 +14,15 @@ const Login = () => {
     useEffect(() => {
         if(isAuthenticated){
             navigate('/');
+            // <Navigate to='/' />
         }
 
         if(error === 'Invalid Credentials'){
             setAlert(error, 'danger');
             clearErrors();
         }
-        // eslint-disable-next-line
-    }, [error, isAuthenticated, navigate])
+        
+    }, [error, isAuthenticated, clearErrors, setAlert, navigate])
 
     const [user, setUser] = useState({
         email: '',
@@ -47,6 +48,10 @@ const Login = () => {
             })
         }
         
+        // if(isAuthenticated){
+        //     return <Navigate to='/' />
+        // }
+        console.log(localStorage.token);
     }
   return (
     <div className='form-container'>

@@ -1,5 +1,6 @@
 import {
     ADD_CONTACT,
+    CONTACT_ERROR,
     DELETE_CONTACT,
     CLEAR_CURRENT,
     SET_CURRENT,
@@ -56,6 +57,11 @@ const contactReducer = (state, action) => {
                 filtered: null
             }
         
+        case CONTACT_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
         }

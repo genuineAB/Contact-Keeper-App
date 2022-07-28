@@ -1,4 +1,4 @@
-import React, {useFragment, useContext, Fragment} from 'react';
+import React, { useContext, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
@@ -13,7 +13,7 @@ export const Navbar = ({title, icon}) => {
     const onLogout = () => {
         logout()
     }
-    // console.log(user.name);
+    // console.log(user);
     const authLinks = (
         
         <Fragment>
@@ -21,7 +21,7 @@ export const Navbar = ({title, icon}) => {
             <li>Hello {user && user.name} </li>
             <li>
                 <a onClick={onLogout} href="#!">
-                    <i className='fas fa-sign-out-all'></i><span className='hide-sm'>Logout</span>
+                    <i className='fas fa-sign-out'></i><span className='hide-sm'>Logout</span>
                 </a>
             </li>
         </Fragment>
