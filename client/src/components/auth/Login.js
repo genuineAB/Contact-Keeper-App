@@ -19,7 +19,7 @@ const Login = () => {
 
         if(error === 'Invalid Credentials'){
             setAlert(error, 'danger');
-            // clearErrors();
+            clearErrors();
         }
         
     }, [error, isAuthenticated, clearErrors, setAlert, navigate])

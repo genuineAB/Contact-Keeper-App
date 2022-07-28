@@ -25,6 +25,7 @@ const AuthState = props => {
       token: localStorage.getItem('token'),
       isAuthenticated: null,
       loading: true,
+      user: null,
       error: null
     };
 
@@ -33,7 +34,7 @@ const AuthState = props => {
     //Load User
     
     const loadUser = async () => {
-      console.log(localStorage.getItem('token'));
+      // console.log(localStorage.getItem('token'));
       if(localStorage.token){
         setAuthToken(localStorage.token);
         
@@ -68,7 +69,7 @@ const AuthState = props => {
           payload: res.data
         })
         loadUser();
-        console.log(loadUser);
+        // console.log(loadUser);
 
       } catch (error) {
         dispatch({
@@ -87,7 +88,7 @@ const AuthState = props => {
       }
       try {
         const res = await axios.post('/api/auth', formData, config);
-
+        localStorage.setItem('token', res.data.token)
         dispatch({
           type: LOGIN_SUCCESS,
           payload: res.data
@@ -104,6 +105,7 @@ const AuthState = props => {
 
     //Logout
     const logout = () => {
+      localStorage.removeItem('token');
       dispatch({type: LOGOUT})
     }
 
