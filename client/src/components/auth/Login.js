@@ -19,7 +19,7 @@ const Login = () => {
 
         if(error === 'Invalid Credentials'){
             setAlert(error, 'danger');
-            clearErrors();
+            // clearErrors();
         }
         
     }, [error, isAuthenticated, clearErrors, setAlert, navigate])
@@ -51,7 +51,7 @@ const Login = () => {
         // if(isAuthenticated){
         //     return <Navigate to='/' />
         // }
-        console.log(localStorage.token);
+        // console.log(localStorage.get);
     }
   return (
     <div className='form-container'>

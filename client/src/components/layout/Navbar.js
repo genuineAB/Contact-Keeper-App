@@ -13,7 +13,7 @@ export const Navbar = ({title, icon}) => {
     const onLogout = () => {
         logout()
     }
-    // console.log(user);
+    console.log(user.name);
     const authLinks = (
         
         <Fragment>
