@@ -34,12 +34,13 @@ export const ContactForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+        
         if(current === null){
             addContact(contact);
         }
         else{
             updateContact(contact);
-            console.log(contact);
+            // console.log(contact);
         }
         
         setContact({

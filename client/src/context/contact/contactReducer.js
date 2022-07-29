@@ -19,6 +19,7 @@ const contactReducer = (state, action) => {
                 loading: false
             }
         case ADD_CONTACT:
+            console.log(state.contacts);
             return {
                 ...state,
                 contacts: [...state.contacts, action.payload],
@@ -35,7 +36,8 @@ const contactReducer = (state, action) => {
         case SET_CURRENT:
             return {
                 ...state,
-                current: action.payload
+                current: action.payload,
+                loading: false
             };  
 
         case CLEAR_CURRENT:
