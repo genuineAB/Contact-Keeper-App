@@ -1,7 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const alertContext = useContext(AlertContext);
@@ -14,7 +14,6 @@ const Login = () => {
     useEffect(() => {
         if(isAuthenticated){
             navigate('/');
-            // <Navigate to='/' />
         }
 
         if(error === 'Invalid Credentials'){
@@ -48,10 +47,6 @@ const Login = () => {
             })
         }
         
-        // if(isAuthenticated){
-        //     return <Navigate to='/' />
-        // }
-        // console.log(localStorage.get);
     }
   return (
     <div className='form-container'>

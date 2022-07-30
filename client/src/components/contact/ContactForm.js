@@ -31,7 +31,7 @@ export const ContactForm = () => {
     const {name, email, phone, type} = contact;
 
     const onChange = e => setContact({...contact, [e.target.name]:e.target.value});
-    // const clearAll = e => clearCurrent();
+    
 
     const onSubmit = e => {
         e.preventDefault();

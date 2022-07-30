@@ -1,4 +1,4 @@
-import React, { useContext, Fragment, useEffect} from 'react';
+import React, { useContext, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
@@ -12,7 +12,6 @@ export const Navbar = ({title, icon}) => {
     const {clearContacts} = contactContext;
     
 
-    // console.log(user);
 
     const onLogout = () => {
         logout();
@@ -50,18 +49,7 @@ export const Navbar = ({title, icon}) => {
             </h1>
             <ul>
                 {isAuthenticated ? authLinks : guestLinks}
-                {/* <li>
-                    <Link to='/' >Home</Link>
-                </li>
-                <li>
-                    <Link to='/about'>About</Link>
-                </li>
-                <li>
-                    <Link to='/register'>Register</Link>
-                </li>
-                <li>
-                    <Link to='/login'>Login</Link>
-                </li> */}
+
             </ul>
 
         </div>
