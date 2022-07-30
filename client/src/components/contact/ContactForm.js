@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import ContactContext from '../../context/contact/contactContext';
 
+
 export const ContactForm = () => {
     const contactContext = useContext(ContactContext);
 
@@ -40,7 +41,8 @@ export const ContactForm = () => {
         }
         else{
             updateContact(contact);
-            // console.log(contact);
+            window.location.reload();
+
         }
         
         setContact({
@@ -64,9 +66,6 @@ export const ContactForm = () => {
         <div>
             <input type='submit' value={(current !== null) ? 'Update Contact' : 'Add Contact'} className='btn btn-primary btn-block' />
         </div>
-        {/* {current && <div>
-            <button className='btn btn-light btn-block' onClick={clearAll}>Clear Contact</button>
-            </div>} */}
         
 
     </form>

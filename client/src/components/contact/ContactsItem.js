@@ -7,16 +7,17 @@ const ContactsItem = ({contact}) => {
     const contactContext = useContext(ContactContext);
     const {deleteContact, setCurrent, clearCurrent} = contactContext;
 
-    const { id, name, email, phone, type} = contact;
+    const { _id, name, email, phone, type} = contact;
     // console.log(contact.id);
     const onDelete = () => {
-        deleteContact(id);
+        deleteContact(_id);
         clearCurrent();
     }
 
     //To set the current contact for updating
     const onSetCurrent = () => {
-        setCurrent(contact)
+        setCurrent(contact);
+        
     }
   return (
     <div className='card bg-light'> 

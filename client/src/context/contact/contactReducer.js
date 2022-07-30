@@ -7,37 +7,39 @@ import {
     UPDATE_CONTACT,
     FILTER_CONTACTS,
     CLEAR_FILTER,
-    GET_CONTACTS
+    GET_CONTACTS,
+    CLEAR_CONTACT
 } from '../types'
 
 const contactReducer = (state, action) => {
     switch(action.type) {
         case GET_CONTACTS:
+
             return {
                 ...state,
-                contacts: action.payload,
+                contacts: action.payload.contacts,
                 loading: false
             }
         case ADD_CONTACT:
-            console.log(state.contacts);
+
             return {
                 ...state,
-                contacts: [...state.contacts, action.payload],
+                contacts: [ action.payload.contact, ...state.contacts],
                 loading: false
             };
         
         case DELETE_CONTACT:
+            console.log(action.payload);
             return {
                 ...state,
-                contacts: state.contacts.filter(contact => contact.id !== action.payload),
+                contacts: state.contacts.filter(contact => contact._id !== action.payload),
                 loading: false
             };
         
         case SET_CURRENT:
             return {
                 ...state,
-                current: action.payload,
-                loading: false
+                current: action.payload
             };  
 
         case CLEAR_CURRENT:
@@ -45,12 +47,21 @@ const contactReducer = (state, action) => {
                 ...state,
                 current: null
             }; 
-
-        case UPDATE_CONTACT:
-            console.log(action.payload);
+        case CLEAR_CONTACT:
             return {
                 ...state,
-                contacts: state.contacts.filter(contact => (contact.id === action.payload.id) ? action.payload : contact)
+                contacts: null,
+                current: null,
+                filtered: null,
+                error: null
+            }
+
+        case UPDATE_CONTACT:
+            
+            return {
+                ...state,
+                contacts: state.contacts.filter(contact => (contact._id === action.payload._id) ? action.payload : contact),
+                loading: false
             }
         
         case FILTER_CONTACTS:
