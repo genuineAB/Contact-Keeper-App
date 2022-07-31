@@ -38,11 +38,19 @@ export const ContactForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-
+        function validatePhoneNumber(input_str) {
+            var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+          
+            return re.test(input_str);
+          }
         if((name.trim().length === 0) || (phone.trim().length === 0)){
             setAlert("Please Enter Contact's Name and Number", "danger");
         }
+        else if(!validatePhoneNumber(phone)){
+            setAlert("Please Enter Valid Number Format", "danger");
+        }
         
+
         if(current === null){
             addContact(contact);
         }

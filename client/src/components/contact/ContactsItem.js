@@ -44,7 +44,6 @@ const ContactsItem = ({contact}) => {
             <button className='btn btn-dark btn-sm' onClick={onSetCurrent}>Edit</button>
             <button className='btn btn-danger btn-sm' onClick={() => {
                 setOpenModal(true);
-                // document.querySelector('button').style.display = 'none';
             }}>Delete</button>
         </p>
         {openModal && <Modal closeModal={setOpenModal} deleteModal={onDelete}/>}
