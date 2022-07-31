@@ -47,7 +47,7 @@ export const ContactForm = () => {
             setAlert("Please Enter Contact's Name and Number", "danger");
         }
         else if(!validatePhoneNumber(phone)){
-            setAlert("Please Enter Valid Number Format", "danger");
+            setAlert("Please Enter Valid Phone Number Format", "danger");
         }
         
 
