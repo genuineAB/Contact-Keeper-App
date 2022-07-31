@@ -10,8 +10,6 @@ connectDB();
 //Initialize Middleware
 app.use(express.json({extended:false}))
 
-// Initiating localhost:5000
-app.get('/', (req, res) => res.json({'msg': 'Welcome to the Contact Keeper App'}));
 
 const PORT = process.env.PORT || 5000;
 
