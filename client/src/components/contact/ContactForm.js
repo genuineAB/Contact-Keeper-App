@@ -43,21 +43,35 @@ export const ContactForm = () => {
           
             return re.test(input_str);
           }
-        if((name.trim().length === 0) || (phone.trim().length === 0)){
-            setAlert("Please Enter Contact's Name and Number", "danger");
+
+        function validateEmail(email) {
+        const res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return res.test(String(email).toLowerCase());
+        }
+        if((name.trim().length === 0)){
+            setAlert("Please Enter Contact's Name", "danger");
+        }
+        else if((phone.trim().length===0)){
+            setAlert("Please Enter Contact's Phone Number", "danger");
         }
         else if(!validatePhoneNumber(phone) && isNaN(phone)){
             setAlert("Please Enter Valid Phone Number Format", "danger");
         }
-
-        if(current === null){
-            addContact(contact);
+        else if(!validateEmail(email)){
+            setAlert("Please Enter a Valid Email Format", "danger");
         }
+
         else{
-            updateContact(contact);
-            window.location.reload();
-
+            if(!current){
+                addContact(contact);
+            }
+            else{
+                updateContact(contact);
+                window.location.reload();
+    
+            }
         }
+        
         
         setContact({
             name: '',
