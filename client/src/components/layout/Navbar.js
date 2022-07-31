@@ -22,10 +22,10 @@ export const Navbar = ({title, icon}) => {
         
         <Fragment>
             
-            <li>Hello {user && user.user.name} </li>
+            <li>Welcome     {user && user.user.name} </li>
             <li>
                 <a onClick={onLogout} href="#!">
-                    <i className='fas fa-sign-out'></i><span className='hide-sm'>Logout</span>
+                    <i className='fas fa-sign-out logout'></i><span className='hide-sm '>Logout</span>
                 </a>
             </li>
         </Fragment>

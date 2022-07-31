@@ -34,11 +34,8 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        if( (email.trim().length === 0)){
+        if( (email.trim().length === 0) || (password.trim().length === 0)){
             setAlert('Please enter all fields', 'danger');
-        }
-        else if((password.trim().length === 0) ){
-            setAlert('Please enter your password', 'danger');
         }
         else{
             login({

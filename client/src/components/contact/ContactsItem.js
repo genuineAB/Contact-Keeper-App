@@ -1,11 +1,15 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import PropTypes from 'prop-types';
 import ContactContext from '../../context/contact/contactContext';
+import Modal from '../modal/Modal';
 
 
 const ContactsItem = ({contact}) => {
     const contactContext = useContext(ContactContext);
     const {deleteContact, setCurrent, clearCurrent} = contactContext;
+
+
+    const [openModal, setOpenModal] = useState(false);
 
     const { _id, name, email, phone, type} = contact;
     
@@ -38,8 +42,12 @@ const ContactsItem = ({contact}) => {
         </ul>
         <p>
             <button className='btn btn-dark btn-sm' onClick={onSetCurrent}>Edit</button>
-            <button className='btn btn-danger btn-sm' onClick={onDelete}>Delete</button>
+            <button className='btn btn-danger btn-sm' onClick={() => {
+                setOpenModal(true);
+                // document.querySelector('button').style.display = 'none';
+            }}>Delete</button>
         </p>
+        {openModal && <Modal closeModal={setOpenModal} deleteModal={onDelete}/>}
     </div>
   )
 }

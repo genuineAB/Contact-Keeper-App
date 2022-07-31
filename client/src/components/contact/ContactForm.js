@@ -1,12 +1,15 @@
 import React, {useState, useContext, useEffect} from 'react';
 import ContactContext from '../../context/contact/contactContext';
+import AlertContext from '../../context/alert/alertContext';
 
 
 export const ContactForm = () => {
     const contactContext = useContext(ContactContext);
+    const alertContext = useContext(AlertContext);
 
 
     const {addContact, current, clearCurrent, updateContact} = contactContext;
+    const {setAlert} = alertContext;
 
     useEffect( () => {
         if(current !== null){
@@ -35,6 +38,10 @@ export const ContactForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
+
+        if((name.trim().length === 0) || (phone.trim().length === 0)){
+            setAlert("Please Enter Contact's Name and Number", "danger");
+        }
         
         if(current === null){
             addContact(contact);
@@ -47,8 +54,8 @@ export const ContactForm = () => {
         
         setContact({
             name: '',
-            email: '',
             phone: '',
+            email: '',
             type: 'Personal'
         });
         clearCurrent();
@@ -57,9 +64,9 @@ export const ContactForm = () => {
   return (
     <form onSubmit={onSubmit}>
         <h2 className='text-primary'>{(current !== null) ? 'Edit Contact' : 'Add Contact'}</h2>
-        <input type='text' placeholder='Name' name='name' value={name} onChange={onChange} required/>
-        <input type='text' placeholder='Phone' name='phone' value={phone} onChange={onChange} required/>
-        <input type='text' placeholder='Email' name='email' value={email} onChange={onChange} required/>
+        <input type='text' placeholder='Name' name='name' value={name} onChange={onChange} />
+        <input type='text' placeholder='Phone' name='phone' value={phone} onChange={onChange} />
+        <input type='text' placeholder='Email' name='email' value={email} onChange={onChange} />
         <h5>Contact Type</h5>
         <input type='radio' name='type' value='Personal' checked={type === 'Personal'} onChange={onChange}/> {' '} Personal{' '} 
         <input type='radio' name='type' value='Professional' checked={type === 'Professional'} onChange={onChange}/> {''} Professional 

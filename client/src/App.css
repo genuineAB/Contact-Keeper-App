@@ -185,7 +185,7 @@ img {
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   padding: 0 20% 0 20%;
 }
 
@@ -385,6 +385,9 @@ table th {
   margin-right: 0.6rem;
 }
 
+.logout{
+  padding-left: 1rem;
+}
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
@@ -437,4 +440,51 @@ table th {
 .item-exit-active {
   opacity: 0;
   transition: opacity 1000ms ease-in;
+}
+
+/* Modal */
+.modalBackground {
+  background-color: rgb(233, 229, 229);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: -40px;
+  border-radius: 8px;
+  z-index: 1;
+}
+.modalContainer {
+  border-radius: 12px;
+  /* background-color: white; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 15px 20px 15px 20px;
+}
+
+.modalContainer .modalTitle {
+  display: inline-block;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.modalContainer .modalFooter {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .modalFooter button {
+  
+  margin: 1px 2px 1px 2px;
+  padding: 1px 3px 1px 2px;
+  border: none;
+  border-radius: 0;
+  background-color: var(--danger-color);
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: var(--dark-color);
 }

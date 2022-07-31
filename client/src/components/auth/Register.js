@@ -38,8 +38,11 @@ const Register = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        if((name.trim().length === 0) || (password.trim().length < 6) || (email.trim().length === 0)){
+        if((name.trim().length === 0) || (password.trim().length === 0) || (email.trim().length === 0)){
             setAlert('Please enter all fields', 'danger');
+        }
+        else if(password.length < 6){
+            setAlert('Passwords must be a minimum of 6 characters', 'danger');
         }
         else if(password !== password2){
             setAlert( 'Passwords do not match', 'danger');
