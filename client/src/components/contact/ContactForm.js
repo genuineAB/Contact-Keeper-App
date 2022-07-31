@@ -39,17 +39,16 @@ export const ContactForm = () => {
     const onSubmit = e => {
         e.preventDefault();
         function validatePhoneNumber(input_str) {
-            var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+            var re = /^\+?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
           
             return re.test(input_str);
           }
         if((name.trim().length === 0) || (phone.trim().length === 0)){
             setAlert("Please Enter Contact's Name and Number", "danger");
         }
-        else if(!validatePhoneNumber(phone)){
+        else if(!validatePhoneNumber(phone) && isNaN(phone)){
             setAlert("Please Enter Valid Phone Number Format", "danger");
         }
-        
 
         if(current === null){
             addContact(contact);
