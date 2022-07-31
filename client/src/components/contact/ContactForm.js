@@ -51,7 +51,7 @@ export const ContactForm = () => {
         if((name.trim().length === 0)){
             setAlert("Please Enter Contact's Name", "danger");
         }
-        else if((phone.trim().length===0)){
+        else if((phone.length===0)){
             setAlert("Please Enter Contact's Phone Number", "danger");
         }
         else if(!validatePhoneNumber(phone) && isNaN(phone)){
