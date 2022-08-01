@@ -64,6 +64,7 @@ const contactReducer = (state, action) => {
             }
         
         case FILTER_CONTACTS:
+            console.log(action.payload);
             return {
                 ...state,
                 filtered: state.contacts.filter(contact => {
