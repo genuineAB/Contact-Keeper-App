@@ -7,7 +7,7 @@ const cors = require('cors');
 
 const whitelist = [
 
-    "https://contact-keeper-application.netlify.app",
+    "https://contact-keeper-application.netlify.app/",
     
     "http://localhost:3000",
     "http://localhost:5000",

@@ -2,8 +2,6 @@ import React, {useReducer} from "react";
 import axios from 'axios';
 import ContactReducer from './contactReducer';
 import ContactContext from "./contactContext";
-import { baseURL } from "../../utils/constant";
-
 import {
     ADD_CONTACT,
     GET_CONTACTS,
@@ -38,7 +36,7 @@ const ContactState = props => {
         }
  
         try {
-            const res = await axios.post(baseURL+'api/contacts', contact, config);
+            const res = await axios.post('api/contacts', contact, config);
             dispatch({
                 type: ADD_CONTACT,
                 payload: res.data
@@ -55,7 +53,7 @@ const ContactState = props => {
     //Get Contacts
     const getContact = async () => {
         try {
-            const res = await axios.get(baseURL+'api/contacts');
+            const res = await axios.get('api/contacts');
             dispatch({
                 type: GET_CONTACTS,
                 payload: res.data
@@ -72,7 +70,7 @@ const ContactState = props => {
     //Delete Contact
     const deleteContact = async _id => {
         try {
-            await axios.delete(baseURL+`api/contacts/${_id}`);
+            await axios.delete(`api/contacts/${_id}`);
             dispatch({type: DELETE_CONTACT, payload: _id});
             
         } catch (error) {
@@ -96,7 +94,7 @@ const ContactState = props => {
         }
  
         try {
-            const res = await axios.patch(baseURL+`api/contacts/${contact._id}`, contact, config);
+            const res = await axios.patch(`api/contacts/${contact._id}`, contact, config);
             dispatch({type: UPDATE_CONTACT, payload: res.data});
             // console.log(res.data);
             
