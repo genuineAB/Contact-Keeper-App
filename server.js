@@ -3,6 +3,31 @@ const express = require('express');
 const connectDB = require('./config/db');
 const path = require('path');
 const app = express();
+const cors = require('cors');
+
+const whitelist = [
+
+    "https://contact-keeper-application.netlify.app",
+    
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "https://contact-keeper-bnlv.onrender.com"
+    
+    
+  ]
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1 || !origin) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'), false)
+      }
+    },
+  }
+  
+  
+  // Enable CORS
+  app.use(cors(corsOptions));
 
 //Connect DB
 connectDB();
@@ -19,6 +44,7 @@ app.use('/api/contacts', require('./routes/contacts'));
 app.use('/api/auth', require('./routes/auth'));
 
 //Serve static assets in production
+
 if(process.env.NODE_ENV === 'production'){
     //
     app.use(express.static('client/build'));
