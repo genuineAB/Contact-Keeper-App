@@ -32,6 +32,8 @@ const whitelist = [
 //Connect DB
 connectDB();
 
+app.get('/', (req, res) => res.json({msg: "Welcome to the Contact Keeper App"}));
+
 //Initialize Middleware
 app.use(express.json({extended:false}))
 
